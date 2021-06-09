@@ -1,0 +1,827 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "pokemon",
+    "version": "0.0.1",
+    "description": "Pokemon - The ultimate edition",
+    "contact": {
+      "name": "Bruno JANUARIO",
+      "email": "bruno.januario@ibm.comm"
+    }
+  },
+  "paths": {
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/pokemon/count": {
+      "get": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "count",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pokemon count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Pokemon.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Pokemon>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PokemonController.count"
+      }
+    },
+    "/pokemon/{id}": {
+      "put": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Pokemon was updated"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pokemon"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PokemonController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Pokemon was updated"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PokemonPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PokemonController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pokemon instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PokemonWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pokemon.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PokemonController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Pokemon was deleted"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PokemonController.deleteById"
+      }
+    },
+    "/pokemon": {
+      "post": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "create",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pokemon instance created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pokemon"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPokemon"
+              }
+            }
+          }
+        },
+        "operationId": "PokemonController.create"
+      },
+      "patch": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Count of Pokemon models updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Pokemon.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Pokemon>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PokemonPartial"
+              }
+            }
+          }
+        },
+        "operationId": "PokemonController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PokemonController",
+        "x-operation-name": "find",
+        "tags": [
+          "PokemonController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Pokemon instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PokemonWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pokemon.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PokemonController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Pokemon": {
+        "title": "Pokemon",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resistant": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weaknesses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weight": {
+            "type": "object"
+          },
+          "height": {
+            "type": "object"
+          },
+          "fleeRate": {
+            "type": "number"
+          },
+          "evolutionRequirements": {
+            "type": "object"
+          },
+          "evolutions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "favourite": {
+            "type": "boolean"
+          },
+          "maxCP": {
+            "type": "number"
+          },
+          "maxHP": {
+            "type": "number"
+          },
+          "attacks": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true
+      },
+      "NewPokemon": {
+        "title": "NewPokemon",
+        "type": "object",
+        "description": "(tsType: Omit<Pokemon, 'id'>, schemaOptions: { title: 'NewPokemon', exclude: [ 'id' ] })",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resistant": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weaknesses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weight": {
+            "type": "object"
+          },
+          "height": {
+            "type": "object"
+          },
+          "fleeRate": {
+            "type": "number"
+          },
+          "evolutionRequirements": {
+            "type": "object"
+          },
+          "evolutions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "favourite": {
+            "type": "boolean"
+          },
+          "maxCP": {
+            "type": "number"
+          },
+          "maxHP": {
+            "type": "number"
+          },
+          "attacks": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Pokemon, 'id'>"
+      },
+      "PokemonWithRelations": {
+        "title": "PokemonWithRelations",
+        "type": "object",
+        "description": "(tsType: PokemonWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resistant": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weaknesses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weight": {
+            "type": "object"
+          },
+          "height": {
+            "type": "object"
+          },
+          "fleeRate": {
+            "type": "number"
+          },
+          "evolutionRequirements": {
+            "type": "object"
+          },
+          "evolutions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "favourite": {
+            "type": "boolean"
+          },
+          "maxCP": {
+            "type": "number"
+          },
+          "maxHP": {
+            "type": "number"
+          },
+          "attacks": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "PokemonWithRelations"
+      },
+      "PokemonPartial": {
+        "title": "PokemonPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Pokemon>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resistant": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weaknesses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weight": {
+            "type": "object"
+          },
+          "height": {
+            "type": "object"
+          },
+          "fleeRate": {
+            "type": "number"
+          },
+          "evolutionRequirements": {
+            "type": "object"
+          },
+          "evolutions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "favourite": {
+            "type": "boolean"
+          },
+          "maxCP": {
+            "type": "number"
+          },
+          "maxHP": {
+            "type": "number"
+          },
+          "attacks": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Pokemon>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Pokemon.Filter": {
+        "type": "object",
+        "title": "Pokemon.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "classification": {
+                    "type": "boolean"
+                  },
+                  "types": {
+                    "type": "boolean"
+                  },
+                  "resistant": {
+                    "type": "boolean"
+                  },
+                  "weaknesses": {
+                    "type": "boolean"
+                  },
+                  "weight": {
+                    "type": "boolean"
+                  },
+                  "height": {
+                    "type": "boolean"
+                  },
+                  "fleeRate": {
+                    "type": "boolean"
+                  },
+                  "evolutionRequirements": {
+                    "type": "boolean"
+                  },
+                  "evolutions": {
+                    "type": "boolean"
+                  },
+                  "favourite": {
+                    "type": "boolean"
+                  },
+                  "maxCP": {
+                    "type": "boolean"
+                  },
+                  "maxHP": {
+                    "type": "boolean"
+                  },
+                  "attacks": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Pokemon.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Pokemon>"
+      },
+      "Pokemon.Filter1": {
+        "type": "object",
+        "title": "Pokemon.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Pokemon.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "boolean"
+                  },
+                  "classification": {
+                    "type": "boolean"
+                  },
+                  "types": {
+                    "type": "boolean"
+                  },
+                  "resistant": {
+                    "type": "boolean"
+                  },
+                  "weaknesses": {
+                    "type": "boolean"
+                  },
+                  "weight": {
+                    "type": "boolean"
+                  },
+                  "height": {
+                    "type": "boolean"
+                  },
+                  "fleeRate": {
+                    "type": "boolean"
+                  },
+                  "evolutionRequirements": {
+                    "type": "boolean"
+                  },
+                  "evolutions": {
+                    "type": "boolean"
+                  },
+                  "favourite": {
+                    "type": "boolean"
+                  },
+                  "maxCP": {
+                    "type": "boolean"
+                  },
+                  "maxHP": {
+                    "type": "boolean"
+                  },
+                  "attacks": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Pokemon.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Pokemon>"
+      }
+    }
+  }
+}
