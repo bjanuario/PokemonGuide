@@ -9,7 +9,7 @@
     1. Run CouchDB
    
 
-###2. Run the Pokemon API
+### 2. Run the Pokemon API
    1. Go to PokemonAPI folder
    1. Run `npm install`
    1. Change the values accord your CouchDB settings at `PokemonAPI/src/datasources/mongodb.datasource.ts`
@@ -17,7 +17,7 @@
    1. Address should be http://localhost:3000 if you don't change it, you can play with it open your browser anf hit: http://localhost:3000/explorer/
 
 
-###3. Run the Pokemon App
+### 3. Run the Pokemon App
    1. Go to PokemonAPI folder
    1. Run `npm install`
       1. Default Pokemon API Url is: http://localhost:3000, if you want to change it, go to line 17 at `PokemonAPP/src/app/api/base-service.ts`
