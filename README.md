@@ -29,4 +29,4 @@
 
 Access README.md on each project folder (API & App)
 
-######_Provided by: Bruno Januário_
+###### _Provided by: Bruno Januário_
