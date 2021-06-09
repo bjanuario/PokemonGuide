@@ -5,6 +5,14 @@
 /tmp
 /out-tsc
 
+/PokemonAPI/dist
+/PokemonAPI/tmp
+/PokemonAPI/out-tsc
+
+/PokemonApp/dist
+/PokemonApp/tmp
+/PokemonApp/out-tsc
+
 # dependencies
 /node_modules
 /PokemonAPI/node_modules
