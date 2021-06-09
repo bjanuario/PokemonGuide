@@ -31,19 +31,83 @@
                    <div class="content-data">
 
 <h1 id="pokemonapp">PokemonApp</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 9.1.8.</p>
+<ul>
+<li>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 9.1.8.</li>
+<li>Depends on loopback OpenAPI v4 (see root README.md for more info)</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ol>
+<li><p>Run the PokemonAPI before this project starts</p>
+</li>
+<li><p>Run <code>npm install</code> on the root directory</p>
+</li>
+</ol>
+<p>Note: On MacOS you need to have xcode-tools installed</p>
+<h2 id="documentation-guide-code">Documentation guide code</h2>
+<h3 id="if-you-want-to-build">If you want to build:</h3>
+<ol>
+<li>Run <code>npm run generate-docs</code> on root folder</li>
+<li>Go to folder <code>documentation</code></li>
+<li>Open <code>index.html</code> on your browser</li>
+</ol>
+<h3 id="if-you-want-to-serve">If you want to serve:</h3>
+<ol>
+<li>Run <code>npm run serve-docs</code> on root folder</li>
+<li>Open your browser at <code>http://127.0.0.1:8080</code></li>
+<li>Navigate</li>
+</ol>
 <h2 id="development-server">Development server</h2>
 <p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
-<h2 id="code-scaffolding">Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
 <h2 id="build">Build</h2>
 <p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
 <h2 id="running-unit-tests">Running unit tests</h2>
 <p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
-<h2 id="further-help">Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
+<h2 id="running-lint-tests">Running lint tests</h2>
+<p>Run <code>ng lint</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
+<h1 id="operate-the-app">Operate the App</h1>
+<ul>
+<li>Initial State<ul>
+<li>When load you get the Pokémon in a pagination style</li>
+<li>Use previous / next to navigate between pages</li>
+</ul>
+</li>
+<li>Search<ul>
+<li>You can search by name or Id, select the input you want</li>
+</ul>
+</li>
+<li>Filters<ul>
+<li>There are 2 types of filter: by Type and by Favourite</li>
+<li>The filters result return all the records</li>
+<li>Sorting is available, click again on desired filter and ir sort by ASC/DESC order</li>
+</ul>
+</li>
+<li>Reset / Reload<ul>
+<li>At any time you can reset the page to its initial state</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Total information of Pokémon<ul>
+<li>On the table at column <code>Details</code> click on <code>View</code>, a popup will appear with all details of the pokenon</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Mark / Unmark a pokemon as favourite<ul>
+<li><code>I am not your favourite</code> means the current Pokémon is not favourite, to mark click on the button</li>
+<li><code>I am your favourite</code> means the current Pokémon is favourite, to unmark click on the button</li>
+<li>A color indicate the favourite state: yellow = favourite, grey = not favourite</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Other options<ul>
+<li>Create a Pokémon is available at the code but disable by default</li>
+<li>You can use the API standard format or the OpenAPI format, both ways are used<h6 id="provided-by-bruno-januário"><em>Provided by: Bruno Januário</em></h6>
+</li>
+</ul>
+</li>
+</ul>
 
 
 

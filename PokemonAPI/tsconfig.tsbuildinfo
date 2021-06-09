@@ -1337,8 +1337,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@types/express-serve-static-core/index.d.ts": {
-        "version": "e41a1ce538d71d5a3389b7fc2e39c15a4972f0d4cb14bf2fe8cda8c361150028",
-        "signature": "e41a1ce538d71d5a3389b7fc2e39c15a4972f0d4cb14bf2fe8cda8c361150028",
+        "version": "9ea2638b6eee61ff2c59c3ac74c1b5999a843da0e2bb60e8bf028b19aacf6246",
+        "signature": "9ea2638b6eee61ff2c59c3ac74c1b5999a843da0e2bb60e8bf028b19aacf6246",
         "affectsGlobalScope": true
       },
       "./node_modules/@types/mime/index.d.ts": {
@@ -1812,13 +1812,13 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@sinonjs/fake-timers/types/fake-timers-src.d.ts": {
-        "version": "2ec90a33a922779199b6d91a27535b8829635a40dc87ee578ee0a15cf5c5c2ec",
-        "signature": "2ec90a33a922779199b6d91a27535b8829635a40dc87ee578ee0a15cf5c5c2ec",
+        "version": "6b40029289530423f407a22755c85b81740f9acfd88d2b53564f8c1657c26660",
+        "signature": "6b40029289530423f407a22755c85b81740f9acfd88d2b53564f8c1657c26660",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/sinon/index.d.ts": {
-        "version": "fc8a86547dc1da127bad3a5c71137b9e8bb9de3c91df12869dd52e3ff2346e61",
-        "signature": "fc8a86547dc1da127bad3a5c71137b9e8bb9de3c91df12869dd52e3ff2346e61",
+        "version": "15b043358a9bac56ee6a567d61adf545b3a09e2f2ead9c3ef3cc617ed3522e71",
+        "signature": "15b043358a9bac56ee6a567d61adf545b3a09e2f2ead9c3ef3cc617ed3522e71",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/testlab/dist/sinon.d.ts": {

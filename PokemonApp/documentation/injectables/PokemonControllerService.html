@@ -740,8 +740,8 @@ To access only the response body, use <code>deleteById()</code> instead.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="425"
-                            class="link-to-prism">src/app/api/services/pokemon-controller.service.ts:425</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="424"
+                            class="link-to-prism">src/app/api/services/pokemon-controller.service.ts:424</a></div>
                 </td>
             </tr>
 
@@ -2540,7 +2540,6 @@ export class PokemonControllerService extends BaseService {
 
   filterBy(type: string, order: string) {
     const urlPag &#x3D; this.rootUrl + &#x27;pokemon?filter[order][0]&#x3D;&#x27; + type + &#x27; &#x27; + order;
-    console.log(urlPag)
       return this.http.get(urlPag);
   }
 
@@ -2556,8 +2555,6 @@ export class PokemonControllerService extends BaseService {
         this.create({body: value[index]}).subscribe(res &#x3D;&gt; {
         });
       });
-
-        //this.create({body: result}).subscribe(res &#x3D;&gt; console.log(res));
     });
   }
 

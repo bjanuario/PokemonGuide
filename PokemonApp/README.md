@@ -1,6 +1,7 @@
 # PokemonApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+* This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+* Depends on loopback OpenAPI v4 (see root README.md for more info)
 
 ## Requirements
 
@@ -64,4 +65,8 @@ Run `ng lint` to execute the unit tests via [Karma](https://karma-runner.github.
   * `I am your favourite` means the current Pokémon is favourite, to unmark click on the button
   * A color indicate the favourite state: yellow = favourite, grey = not favourite
 
-######_Provided by: Bruno Januário_
+
+* Other options
+  * Create a Pokémon is available at the code but disable by default
+  * You can use the API standard format or the OpenAPI format, both ways are used
+###### _Provided by: Bruno Januário_
