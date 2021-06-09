@@ -2,7 +2,7 @@
 
 ## Requirements
 
-1. Install CouchDB on your computer
+### 1. Install CouchDB on your computer
     1. For [Windows](https://docs.couchdb.org/en/stable/install/windows.html)
     1. For [Linux](https://docs.couchdb.org/en/stable/install/unix.html)
     1. For [MacOS](https://docs.couchdb.org/en/3.1.1/install/mac.html)
