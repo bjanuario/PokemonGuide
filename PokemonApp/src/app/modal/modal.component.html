@@ -1,0 +1,49 @@
+<div class="modal-header">
+  <h4 class="modal-title">I'm {{name?.name}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div><h5>:: Here is my specs :: </h5></div>
+  <img [src]="name?.url">
+  <div><b>ID:</b> {{name?.id}}</div>
+  <div><b>Classification:</b> {{name?.classification}}</div>
+  <div><b>Types:</b> {{name?.types}}</div>
+  <div><b>Resistant:</b> {{name?.resistant}}</div>
+  <div><b>Weight</b>
+    <div style="margin-left: 20px">Minimum: {{name?.weight?.minimum}}</div>
+    <div style="margin-left: 20px">Maximum: {{name?.weight?.maximum}}</div>
+  </div>
+  <div><b>Height</b>
+    <div style="margin-left: 20px">Minimum: {{name?.height?.minimum}}</div>
+    <div style="margin-left: 20px">Maximum: {{name?.height?.maximum}}</div>
+  </div>
+  <div><b>FleeRate:</b> {{name?.fleeRate}}</div>
+  <div *ngIf="name?.evolutionRequirements"><b>Evolution Requirements</b>
+    <div *ngIf="name?.evolutionRequirements.amount" style="margin-left: 20px">Amount: {{name?.evolutionRequirements.amount}}</div>
+    <div style="margin-left: 20px">Name: {{name?.evolutionRequirements.name}}</div>
+  </div>
+  <span><b>Evolution</b></span>
+  <div *ngFor="let evo of name?.evolutions">
+    <span style="margin-left: 20px">Id: {{evo?.id}}</span>
+    <span style="margin-left: 20px">Name: {{evo?.name}}</span>
+  </div>
+  <div><b>maxCP:</b> {{name?.maxCP}}</div>
+  <div><b>maxHP:</b> {{name?.maxHP}}</div>
+  <span><b>Attacks: Fast</b></span>
+  <div *ngFor="let attk of name?.attacks.fast">
+    <span style="margin-left: 20px">Name: {{attk?.name}}</span>
+    <span style="margin-left: 40px">Type: {{attk?.type}}</span>
+    <span style="margin-left: 20px">Damage: {{attk?.damage}}</span>
+  </div>
+  <span><b>Attacks: Special</b></span>
+  <div *ngFor="let attk of name?.attacks.special">
+    <span style="margin-left: 20px">Name: {{attk?.name}}</span>
+    <span style="margin-left: 40px">Type: {{attk?.type}}</span>
+    <span style="margin-left: 20px">Damage: {{attk?.damage}}</span>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

@@ -1,0 +1,40 @@
+<input #findID>
+<button (click)="searchBy('id', findID.value)">Find by ID</button>
+
+<input class="space" #findName>
+<button (click)="searchBy('name', findName.value)">Find by Name</button>
+
+<button class="space" (click)="filterBy('types')">Filter by Type (All) ↑/↓</button>
+<button class="space" (click)="filterBy('favourite')">Filter by Favourite (All) ↑/↓</button>
+<button class="space" style="background-color: red" (click)="refresh()">Reload / Reset</button>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Type</th>
+    <th scope="col">Details</th>
+    <th scope="col">Favourite</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pokemon of pokemons">
+    <th scope="row">{{pokemon.id}}</th>
+    <td>{{pokemon.name}}</td>
+    <td>{{pokemon.types}}</td>
+    <td>
+      <button (click)="open(pokemon)">View</button>
+    </td>
+    <td>
+      <button style="background-color: lightyellow" *ngIf="pokemon.favourite" (click)="makeItFavourite($event.target, 'unmark', pokemon.id)">I am your
+        favourite
+      </button>
+      <button style="background-color: transparent" *ngIf="!pokemon.favourite" (click)="makeItFavourite($event.target, 'mark',  pokemon.id)">I am not your favourite
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button (click)="getPokemonsWithPagination('previous')">Previous Page</button><button *ngIf="this.skipRecords +10 < this.nrOfRecords" (click)="getPokemonsWithPagination('next')">Next Page</button>
+<div *ngIf="havePagination">{{this.showCurrentRecords}} of total {{this.nrOfRecords}}</div>

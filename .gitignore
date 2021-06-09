@@ -1,14 +1,16 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-#/dist
+/dist
 /tmp
 /out-tsc
 
 # dependencies
 /node_modules
 /PokemonAPI/node_modules
-/Pokemon/App/node_modules
+/PokemonApp/node_modules
+/PokemonAPI/package-lock.json
+/PokemonApp/package-lock.json
 
 # profiling files
 chrome-profiler-events.json
